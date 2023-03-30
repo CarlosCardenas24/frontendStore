@@ -16,3 +16,5 @@ export const productProvider = () => {
         }
     }
 }
+
+export default productStore

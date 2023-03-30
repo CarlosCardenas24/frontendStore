@@ -4,9 +4,7 @@ import { Row, Col } from 'react-bootstrap'
 import { render } from '@testing-library/react'
 
 function Store() {
-  /* render() {
-    const data = 
-  } */
+  
   return (
     <div>
       <Row>
