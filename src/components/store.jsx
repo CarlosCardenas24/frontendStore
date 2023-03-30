@@ -1,8 +1,18 @@
 import React from 'react'
+import  productStore  from '../productStore'
+import { Row, Col } from 'react-bootstrap'
+import { render } from '@testing-library/react'
 
 function Store() {
+  /* render() {
+    const data = 
+  } */
   return (
-    <div>store</div>
+    <div>
+      <Row>
+        
+      </Row>
+    </div>
   )
 }
 
