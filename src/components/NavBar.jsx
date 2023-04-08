@@ -35,8 +35,8 @@ function NaviBar() {
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Test Title</Modal.Title>
-                        <Modal.Body>Test body.</Modal.Body>
                     </Modal.Header>
+                    <Modal.Body>Test body.</Modal.Body>
                 </Modal>
             </Navbar>
         </div>
