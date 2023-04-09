@@ -1,8 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { produce, getProductData } from "../productStore";
 
 const CartContext = createContext({
-    items: [],
+    /* items: [], */
     getProductQuantity: () => {},
     addOneToCart: () => {},
     removeOneFromCart: () => {},
@@ -13,14 +13,29 @@ const CartContext = createContext({
 export const CartContextProvider = () => {
     const [items, setItems] = useState([])
 
+    useEffect(() => {
+        fetchProduct()
+    }, [])
+
+    const fetchProduct = () => {
+        setItems(getProductData, )
+    }
+
     // adding one to the cart
+    const addOneToCart = () => {
+        setItems()
+        console.log(items)
+    }
+
 
 
     return <CartContext.Provider value={{
-        getProductQuantity,
+        /* getProductQuantity, */
         addOneToCart,
-        removeOneFromCart,
+        /* removeOneFromCart,
         deleteFromCart,
-        getTotalCost
+        getTotalCost */
     }}></CartContext.Provider>
 }
+
+export default CartContext

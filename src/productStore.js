@@ -8,7 +8,7 @@ const produce = [
 function getProductData(num) {
     for (let i = 0; i < produce.length; i++){
         if (num === produce[i].id) {
-            return produce[i].title;
+            return produce[i].id;
         } else {
             return console.error("Doesn't exist!")
         }
