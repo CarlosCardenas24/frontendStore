@@ -5,7 +5,7 @@ import  CartContext  from './context/CartContext'
 import { useContext } from 'react'
 
 function ProductCard() {
-  /* const {addOneToCart} = useContext(CartContext) */
+  const {addOneToCart, quantity} = useContext(CartContext)
 
   return (
     <Container>
@@ -17,6 +17,8 @@ function ProductCard() {
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>
               <p>{product.price}</p>
+              <Button onClick={ () =>addOneToCart(product.id)}>Add one</Button>
+              <p>{quantity}</p>
             </Card.Text>
           </Card.Body> 
         </Card>
@@ -29,6 +31,7 @@ function ProductCard() {
           <Card.Body>
             <Card.Text>
               <Button onClick={addOneToCart}>Add one</Button>
+              <p>{quantity}</p>
             </Card.Text>
           </Card.Body>
         </Card>
