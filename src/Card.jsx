@@ -5,9 +5,10 @@ import  CartContext  from './context/CartContext'
 import { useContext } from 'react'
 
 function ProductCard() {
-  const {addOneToCart, quantity} = useContext(CartContext)
+  const {addOneToCart, cart, checkCart} = useContext(CartContext)
 
   return (
+    <div>
     <Container>
       <Row>
       {produce.map((product, index) => 
@@ -17,26 +18,18 @@ function ProductCard() {
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>
               <p>{product.price}</p>
-              <Button onClick={ () =>addOneToCart(product.id)}>Add one</Button>
-              <p>{quantity}</p>
+              <Button onClick={() => addOneToCart(product.id)}>Add one</Button>
             </Card.Text>
           </Card.Body> 
         </Card>
       </Col>
       )}
       </Row>
-
-      {/* <Row>
-        <Card className='mb-3'>
-          <Card.Body>
-            <Card.Text>
-              <Button onClick={addOneToCart}>Add one</Button>
-              <p>{quantity}</p>
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Row> */}
+      <Row>
+        <Button onClick={() => checkCart()}>Cart</Button>
+      </Row>
     </Container>
+    </div>
   )
 }
 

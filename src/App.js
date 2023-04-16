@@ -14,7 +14,6 @@ function App() {
       <Router>
         <div>
           <NaviBar />
-
           <main className='container mx-auto px-3 pb-12'>
             <Routes>
               <Route path='/' element={<Store />}/>
