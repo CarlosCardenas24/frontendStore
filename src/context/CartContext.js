@@ -71,7 +71,26 @@ export const CartContextProvider = ({children}) => {
     }
 
     const getTotalCost = () => {
-        
+        let total = []
+
+        produce.map((product) => {
+            if (getProductQuantity(product.id) === 0){
+                return null
+            } else if (getProductQuantity(product.id) >= 1){
+                cart.map((cartQuantity) => {
+                    if (product.id === cartQuantity.id) {
+                        total.push(product.price * cartQuantity.quantity)
+                    }
+                })
+            }
+        })
+
+        const initialValue = 0
+        const grandTotal = Math.round(100*total.reduce(
+            (accumulator, currentValue) => accumulator + currentValue, initialValue
+        ))/100
+
+        console.log(grandTotal)
     }
 
     const checkCart = () => {
