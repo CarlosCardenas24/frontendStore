@@ -48,10 +48,13 @@ export const CartContextProvider = ({children}) => {
     }
 
     const removeOneFromCart = (id) => {
+
         if (getProductQuantity(id) === 0){
             return null   
+
         } else if (getProductQuantity(id) === 1) {
             setCart(cart.filter((product) => product.id !== id))
+
         } else if (getProductQuantity(id) > 1) {
             setCart(cart.map((product) => {
                 if (product.id === id) {
@@ -63,19 +66,23 @@ export const CartContextProvider = ({children}) => {
     }
 
     const deleteFromCart = (id) => {
+
         if (getProductQuantity(id) === 0){
             return null   
+            
         } else if (getProductQuantity(id) >= 1) {
             setCart(cart.filter((product) => product.id !== id))
         }
     }
 
     const getTotalCost = () => {
-        let total = []
+        /* let total = []
 
         produce.map((product) => {
+
             if (getProductQuantity(product.id) === 0){
                 return null
+
             } else if (getProductQuantity(product.id) >= 1){
                 cart.map((cartQuantity) => {
                     if (product.id === cartQuantity.id) {
@@ -90,7 +97,15 @@ export const CartContextProvider = ({children}) => {
             (accumulator, currentValue) => accumulator + currentValue, initialValue
         ))/100
 
-        console.log(grandTotal)
+        console.log(grandTotal) */
+
+        let total = 0
+            cart.map((product) => {
+                    total += (product.quantity * getProductData(product.id).price)
+            })
+
+            console.log(Math.round(100*total)/100)
+            return Math.round(100*total)/100
     }
 
     const checkCart = () => {

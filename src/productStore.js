@@ -6,13 +6,17 @@ const produce = [
 ]
     
 function getProductData(num) {
-    for (let i = 0; i < produce.length; i++){
+   let productData = produce.find((item) => num === item.id)
+
+   return productData
+
+    /* for (let i = 0; i < produce.length; i++){
         if (num === produce[i].id) {
-            return produce[i].id;
+            return produce[i];
         } else {
             return console.error("Doesn't exist!")
         }
-    }
+    } */
 }
 
 export {produce, getProductData}
