@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { Container, Nav, Navbar, Button, Image, Modal, ButtonToolbar, NavbarBrand, NavbarToggle, NavbarCollapse} from 'react-bootstrap'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import  CartContext  from '../context/CartContext'
+import { useContext } from 'react'
 
 function NaviBar() {
     const logoStyle = {
@@ -19,6 +21,8 @@ function NaviBar() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true)
 
+    const {getTotalQuantity} = useContext(CartContext)
+
     return (
         <div>
             <Navbar className='mt-3' expand='sm'>
@@ -29,7 +33,7 @@ function NaviBar() {
                 <Navbar.Toggle className='me-2'/>
 
                 <Navbar.Collapse className='mx-2 justify-content-end'>
-                        <Button type='button' variant='outline-primary' onClick={handleShow} className='btn mt-2' style={{fontWeight: 'bold'}}>checkout 0 items</Button>             
+                        <Button type='button' variant='outline-primary' onClick={handleShow} className='btn mt-2' style={{fontWeight: 'bold'}}>checkout {getTotalQuantity()} items</Button>             
                 </Navbar.Collapse>
 
                 <Modal show={show} onHide={handleClose}>

@@ -5,11 +5,9 @@ import  CartContext  from './context/CartContext'
 import { useContext } from 'react'
 
 function ProductCard() {
-  const {addOneToCart, cart, checkCart, removeOneFromCart, deleteFromCart, getTotalCost, getProductQuantity} = useContext(CartContext)
+  const {addOneToCart, cart, checkCart, removeOneFromCart, deleteFromCart, getTotalCost, getProductQuantity, getTotalQuantity} = useContext(CartContext)
 
-let displayForm = true
-
-
+ 
 
 
   return (
@@ -18,40 +16,27 @@ let displayForm = true
       <Row>
       {produce.map((product, index) => 
       <Col key={index}>
-        <Card className='mb-3'>
+        <Card className='mb-3' style={{width: '12rem'}}>
           <Card.Body>
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>
               <p>{product.price}</p>
-
-              {displayForm ? (
-                <Form>
-                <Form.Label>  
-                  In Cart: {getProductQuantity(product.id)}
-                </Form.Label>
-                <br />
-                <Button variant="outline-primary" style={{width: '10rem', height: '2rem'}} onClick={addOneToCart(product.id)}>+</Button>
-                <Button variant="outline-primary" style={{width: '10rem', height: '2rem'}} onClick={removeOneFromCart(product.id)}>-</Button>
-                <Button variant='danger' style={{width: '10rem', height: '2rem'}} onClick={deleteFromCart(product.id)}>Remove from cart</Button>
-              </Form>
-              ) : (
-                <Button variant="secondary" onClick={addOneToCart(product.id)}>Add one</Button>
-              )}
-              
-              {/* {displayForm && 
-                <Form>
-                  <Form.Label> 
-                    In Cart: {getProductQuantity(product.id)}
-                  </Form.Label>
-
-                  <Button variant="outline-primary" style={{width: '10rem', height: '2rem'}} onClick={() => addOneToCart(product.id)}>+</Button>
-                  <Button variant="outline-primary" style={{width: '10rem', height: '2rem'}} onClick={() => removeOneFromCart(product.id)}>-</Button>
-                  <Button variant='danger' style={{width: '10rem', height: '2rem'}} onClick={() => deleteFromCart(product.id)}>Remove from cart</Button>
-                </Form>
-              }
-              {!displayForm && 
+              {getProductQuantity(product.id) === 0 ? (
                 <Button variant="secondary" onClick={() => addOneToCart(product.id)}>Add one</Button>
-              } */}
+                ) : (
+                  <Form>
+                    <Form.Label> 
+                      In Cart: {getProductQuantity(product.id)}
+                    </Form.Label>
+                    <br />
+                    <Button variant="outline-primary" style={{width: '10rem', height: '2rem'}} onClick={() => addOneToCart(product.id)}>+</Button>
+                    <br />
+                    <Button variant="outline-primary" style={{width: '10rem', height: '2rem'}} onClick={() => removeOneFromCart(product.id)}>-</Button>
+                    <br />
+                    <Button variant='danger' style={{width: '10rem', height: '2rem'}} onClick={() => deleteFromCart(product.id)}>Remove from cart</Button>
+                  </Form>
+                )
+              }
             </Card.Text>
           </Card.Body> 
         </Card>
