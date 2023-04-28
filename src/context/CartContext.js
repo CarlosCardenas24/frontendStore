@@ -100,12 +100,13 @@ export const CartContextProvider = ({children}) => {
         console.log(grandTotal) */
 
         let total = 0
-            cart.map((product) => {
-                    total += (product.quantity * getProductData(product.id).price)
-            })
+        
+        cart.map((product) => {
+                total += (product.quantity * getProductData(product.id).price)
+        })
 
-            console.log(Math.round(100*total)/100)
-            return Math.round(100*total)/100
+        console.log(Math.round(100*total)/100)
+        return Math.round(100*total)/100
     }
 
     const checkCart = () => {
