@@ -5,9 +5,7 @@ import  CartContext  from './context/CartContext'
 import { useContext } from 'react'
 
 function ProductCard() {
-  const {addOneToCart, cart, checkCart, removeOneFromCart, deleteFromCart, getTotalCost, getProductQuantity, getTotalQuantity} = useContext(CartContext)
-
- 
+  const {addOneToCart, cart, removeOneFromCart, deleteFromCart, getTotalCost, getProductQuantity, getTotalQuantity} = useContext(CartContext)
 
 
   return (

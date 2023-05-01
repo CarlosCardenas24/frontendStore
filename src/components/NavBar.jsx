@@ -3,6 +3,7 @@ import { Container, Nav, Navbar, Button, Image, Modal, ButtonToolbar, NavbarBran
 import PropTypes from 'prop-types'
 import  CartContext  from '../context/CartContext'
 import { useContext } from 'react'
+import { produce, getProductData } from '../productStore'
 
 function NaviBar() {
     const logoStyle = {
@@ -21,7 +22,7 @@ function NaviBar() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true)
 
-    const {getTotalQuantity} = useContext(CartContext)
+    const {getTotalQuantity, getProductQuantity, deleteFromCart, getProductTotalPrice, getTotalCost, cart} = useContext(CartContext)
 
     return (
         <div>
@@ -38,9 +39,48 @@ function NaviBar() {
 
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Test Title</Modal.Title>
+                        <Modal.Title>Shopping Cart</Modal.Title>
+                        <hr/>
                     </Modal.Header>
-                    <Modal.Body>Test body.</Modal.Body>
+                    
+                        {getTotalQuantity() === 0 ? (
+                            <Modal.Body> 
+                                There are no items in your cart!
+                            </Modal.Body>
+                        ):(
+                            <Modal.Body> 
+                                
+                                <Container>
+                                    Items in your cart: <br/><br/>
+
+                                    {cart.map((product) => {
+                                        if (getProductQuantity(product.id) === 0) {
+                                            return null
+                                        } else if (getProductQuantity(product.id) >= 1) {
+                                            return (
+                                                <div>
+                                                    <h2>{getProductData(product.id).title}</h2>
+
+                                                    <p>{getProductQuantity(product.id) + " total"}</p>
+                                                    
+                                                    <p>{"$" + getProductTotalPrice(product.id)}</p>
+
+                                                    <Button onClick={() => deleteFromCart(product.id)}>Remove</Button>
+
+                                                    <br/>
+                                                    <hr/>
+                                                </div>
+                                            )
+                                        }
+                                    })}
+                                    
+                                    <br/>
+                                    <h1>Total: ${getTotalCost()}</h1>
+
+                                    <Button variant='success' >Purchase Items!</Button>
+                                </Container>
+                            </Modal.Body>
+                        )}
                 </Modal>
             </Navbar>
         </div>
