@@ -7,6 +7,7 @@ import { useContext } from 'react'
 function ProductCard() {
   const {addOneToCart, cart, removeOneFromCart, deleteFromCart, getTotalCost, getProductQuantity, getTotalQuantity} = useContext(CartContext)
 
+  //test
 
   return (
     <div>
