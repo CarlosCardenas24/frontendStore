@@ -24,6 +24,19 @@ function NaviBar() {
 
     const {getTotalQuantity, getProductQuantity, deleteFromCart, getProductTotalPrice, getTotalCost, cart} = useContext(CartContext)
 
+    // POST method implementation
+    async function postData(url = "", data = {...cart}) {
+        await fetch("http://localhost:4000/checkout", {
+            method: "POST",
+            headers: {
+                'Accept': "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data),
+        }).then(res =>  res.json())
+        .then((x) => console.log(x))
+    }
+
     return (
         <div>
             <Navbar className='mt-3' expand='sm'>
@@ -53,12 +66,12 @@ function NaviBar() {
                                 <Container>
                                     Items in your cart: <br/><br/>
 
-                                    {cart.map((product) => {
+                                    {cart.map((product, index) => {
                                         if (getProductQuantity(product.id) === 0) {
                                             return null
                                         } else if (getProductQuantity(product.id) >= 1) {
                                             return (
-                                                <div>
+                                                <div key={index}>
                                                     <h2>{getProductData(product.id).title}</h2>
 
                                                     <p>{getProductQuantity(product.id) + " total"}</p>
@@ -77,7 +90,7 @@ function NaviBar() {
                                     <br/>
                                     <h1>Total: ${getTotalCost()}</h1>
 
-                                    <Button variant='success' >Purchase Items!</Button>
+                                    <Button variant='success' onClick={postData}>Purchase Items!</Button>
                                 </Container>
                             </Modal.Body>
                         )}

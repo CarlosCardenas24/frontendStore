@@ -10,7 +10,7 @@ function ProductCard() {
   //test
 
   return (
-    <div>
+    <>
     <Container>
       <Row>
       {produce.map((product, index) => 
@@ -19,7 +19,7 @@ function ProductCard() {
           <Card.Body>
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>
-              <p>{product.price}</p>
+              {product.price} <br/>
               {getProductQuantity(product.id) === 0 ? (
                 <Button variant="secondary" onClick={() => addOneToCart(product.id)}>Add one</Button>
                 ) : (
@@ -43,7 +43,7 @@ function ProductCard() {
       )}
       </Row>
     </Container>
-    </div>
+    </>
   )
 }
 
