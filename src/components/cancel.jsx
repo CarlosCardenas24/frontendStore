@@ -1,8 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Cancel() {
   return (
-    <div>cancel</div>
+    <div className='text-center mt-5'>
+        <h1>Order canceled.</h1>
+        <Link to='/' className='btn btn-primary btn-lg mt-3'>
+            Back to Home
+        </Link>
+    </div>
   )
 }
 

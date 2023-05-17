@@ -18,7 +18,7 @@ function ProductCard() {
         <Card className='mb-3' style={{width: '12rem'}}>
           <Card.Body>
             <Card.Title>{product.title}</Card.Title>
-            <Card.Text>
+            <div>
               {product.price} <br/>
               {getProductQuantity(product.id) === 0 ? (
                 <Button variant="secondary" onClick={() => addOneToCart(product.id)}>Add one</Button>
@@ -36,7 +36,7 @@ function ProductCard() {
                   </Form>
                 )
               }
-            </Card.Text>
+            </div>
           </Card.Body> 
         </Card>
       </Col>
