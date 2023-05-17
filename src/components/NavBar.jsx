@@ -25,7 +25,7 @@ function NaviBar() {
     const {getTotalQuantity, getProductQuantity, deleteFromCart, getProductTotalPrice, getTotalCost, cart} = useContext(CartContext)
 
     // POST method implementation
-    async function postData(url = "", data = {...cart}) {
+    async function postData(url = "", data = cart) {
         await fetch("http://localhost:4000/checkout", {
             method: "POST",
             headers: {
@@ -34,7 +34,7 @@ function NaviBar() {
             },
             body: JSON.stringify(data),
         }).then(res =>  res.json())
-        .then((x) => console.log(x))
+        .then((x) => window.location.href = x)
     }
 
     return (

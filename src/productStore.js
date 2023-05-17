@@ -1,8 +1,11 @@
+const PRODUCT_ONE = process.env.REACT_APP_PRODUCT_ONE
+const PRODUCT_TWO = process.env.REACT_APP_PRODUCT_TWO
+const PRODUCT_THREE = process.env.REACT_APP_PRODUCT_THREE
+
 const produce = [
-    { id: 1, title: 'product 1', price: 10.99 },
-    { id: 2, title: 'product 2', price: 9.99 },
-    { id: 3, title: 'product 3', price: 15.99 },
-    { id: 4, title: 'product 4', price: 19.99 },
+    { id: `${PRODUCT_ONE}`, title: 'product 1', price: 10.99 },
+    { id: `${PRODUCT_TWO}`, title: 'product 2', price: 9.99 },
+    { id: `${PRODUCT_THREE}`, title: 'product 3', price: 15.99 },
 ]
     
 function getProductData(num) {

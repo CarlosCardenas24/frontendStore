@@ -35,6 +35,7 @@ export const CartContextProvider = ({children}) => {
     // adding one to the cart
     const addOneToCart = (id) => {
 
+
         if (getProductQuantity(id) === 0){
             setCart([{id, quantity: 1}, ...cart])
 
