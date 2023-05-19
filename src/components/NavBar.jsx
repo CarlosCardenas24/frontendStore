@@ -9,7 +9,8 @@ function NaviBar() {
     const logoStyle = {
         textDecoration: 'none',
         color: 'inherit',
-        fontSize: '1.5rem',
+        fontSize: '2rem',
+        fontWeight: 'bold'
     }
 
     const modalShow = {
@@ -40,8 +41,8 @@ function NaviBar() {
     return (
         <div>
             <Navbar className='mt-3' expand='sm'>
-                <Navbar.Brand href='#home' className='ms-3' style={logoStyle}>
-                    good<strong style={{ color: "purple" }}>Sleep</strong>
+                <Navbar.Brand href='/' className='ms-3' style={logoStyle}>
+                    good<strong style={{ color: "#51087E" }}>Sleep</strong>
                 </Navbar.Brand>
 
                 <Navbar.Toggle className='me-2'/>
@@ -57,7 +58,7 @@ function NaviBar() {
                     </Modal.Header>
                     
                         {getTotalQuantity() === 0 ? (
-                            <Modal.Body> 
+                            <Modal.Body style={{fontSize: '2rem', fontWeight: 'bold'}}> 
                                 There are no items in your cart!
                             </Modal.Body>
                         ):(

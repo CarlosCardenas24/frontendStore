@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Success() {
   return (
-    <div className='text-center mt-5'>
+    <div className='text-center mt-5' style={{height: '75vh'}}>
         <h1>Payment successful!</h1>
         <Link to='/' className='btn btn-primary btn-lg mt-3'>
             Back to Home

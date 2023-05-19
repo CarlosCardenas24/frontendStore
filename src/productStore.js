@@ -4,8 +4,8 @@ const PRODUCT_THREE = process.env.REACT_APP_PRODUCT_THREE
 
 const produce = [
     { id: `${PRODUCT_ONE}`, title: 'product 1', price: 10.99 },
-    { id: `${PRODUCT_TWO}`, title: 'product 2', price: 9.99 },
-    { id: `${PRODUCT_THREE}`, title: 'product 3', price: 15.99 },
+    /* { id: `${PRODUCT_TWO}`, title: 'product 2', price: 9.99 },
+    { id: `${PRODUCT_THREE}`, title: 'product 3', price: 15.99 }, */
 ]
     
 function getProductData(num) {
