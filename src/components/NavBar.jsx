@@ -27,7 +27,7 @@ function NaviBar() {
 
     // POST method implementation
     async function postData(url = "", data = cart) {
-        await fetch("http://localhost:4000/checkout", {
+        await fetch("https://backendserver-shoppingcart.herokuapp.com/", {
             method: "POST",
             headers: {
                 'Accept': "application/json",
