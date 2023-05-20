@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, Row, Col, Form, Container, Image } from 'react-bootstrap'
-import { produce, getProductData } from './productStore'
+import { produce } from './productStore'
 import  CartContext  from './context/CartContext'
 import { useContext } from 'react'
 import frontSide from "./pictures/front-side-pic.png"
@@ -8,7 +8,7 @@ import backSide from "./pictures/back-side-pic.png"
 import bothSides from './pictures/both-sides-pic.png'
 
 function ProductCard() {
-  const {addOneToCart, cart, removeOneFromCart, deleteFromCart, getTotalCost, getProductQuantity, getTotalQuantity} = useContext(CartContext)
+  const {addOneToCart, removeOneFromCart, deleteFromCart, getProductQuantity} = useContext(CartContext)
 
   const mainStyle = {
     textDecoration: 'none',
@@ -25,11 +25,6 @@ function ProductCard() {
     height: '2rem',
     fontWeight: 'bold'
   }
-  const imgStyle = {
-    height: 'auto',
-    width: '100%'
-  }
-
 
   return (
     <>
@@ -37,7 +32,7 @@ function ProductCard() {
       <Row>
         {produce.map((product, index) => 
         <Col key={index}>
-          <Card className='mb-3' style={{width: '22rem', border: 'none'}}>
+          <Card className='mb-3' style={{width: '22rem'}}>
             <Card.Body>
               <Card.Title style={mainStyle}>The official goodSleep T.</Card.Title>
               <div>
@@ -70,9 +65,13 @@ function ProductCard() {
       </Row>
 
       <Row className='mt-5'>
-        <Image style={{height: '450px', width: 'auto'}} src={backSide}/>
+        <Container className='m-0' style={{width: '30%'}}>
+          <Image style={{height: '450px', width: 'auto'}} src={backSide}/>
+        </Container>
 
-        <Image style={{height: '450px', width: 'auto'}} src={bothSides}/>
+        <Container id='bothSides' style={{width: '50%'}}>
+          <Image style={{height: '450px', width: 'auto'}} src={bothSides}/>
+        </Container>
       </Row>
     </Container>
     </>
