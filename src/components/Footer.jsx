@@ -22,10 +22,11 @@ function Footer() {
 
   return (
     <footer className='mt-5 mb-0 pt-4 row-cols-md-3' style={footerStyle}>
-        <div>
-            <p href='/' className='ms-3' style={logoStyle}>
+        <div id='footerID'>
+            <p id='footerP' href='/' className='ms-3' style={logoStyle}>
                 good<strong>Sleep  </strong>
-                Copyright &copy; {footerYear} All rights reserved
+                Copyright &copy; {footerYear} <br id='footerBR' style={{display: 'none'}} /> 
+                All rights reserved
             </p>
         </div>
     </footer>

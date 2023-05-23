@@ -41,4 +41,17 @@
   #bothSides {
     display: none;
   }
+
+  #footerID {
+    display: flex;
+    justify-content: center;
+  }
+
+  #footerP {
+    margin: 0 !important;
+  }
+
+  #footerBR {
+    display: block !important;
+  }
 }

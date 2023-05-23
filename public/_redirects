@@ -1,2 +1,3 @@
 /* /index.html 200
-/* https://backendserver-shoppingcart.herokuapp.com/
+
+/api/* https://backendserver-shoppingcart.herokuapp.com/:splat 200

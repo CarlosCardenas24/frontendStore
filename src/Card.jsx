@@ -29,7 +29,7 @@ function ProductCard() {
   return (
     <>
     <Container>
-      <Row>
+      <Row id='cardRow'>
         {produce.map((product, index) => 
         <Col key={index}>
           <Card className='mb-3' style={{width: '22rem'}}>
@@ -61,12 +61,12 @@ function ProductCard() {
         </Col>
         )}
 
-        <Image style={{height: '450px', width: 'auto'}} src={frontSide}/>
+        <Image className='p-0' style={{height: '450px', width: '376px'}} src={frontSide}/>
       </Row>
 
-      <Row className='mt-5'>
+      <Row id='cardRow' className='mt-5'>
         <Container className='m-0' style={{width: '30%'}}>
-          <Image style={{height: '450px', width: 'auto'}} src={backSide}/>
+          <Image style={{height: '450px', width: '376px'}} src={backSide}/>
         </Container>
 
         <Container id='bothSides' style={{width: '50%'}}>
